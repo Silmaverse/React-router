@@ -3,6 +3,22 @@ import logo from '../assets/images/logo.png'
 import { Link } from 'react-router'
 
 const Navbar = () => {
+  const navitems = [
+    {
+      content: 'Home',
+      path:'/'
+    },
+    {
+      content: 'About',
+      path: '/about'
+    }, {
+      content: 'AllProduct',
+      path: '/layouttwo'
+    }, {
+      content: 'Services',
+      path: '/layouttwo/service'
+    }
+  ]
   return (
     <>
           <nav id='navbar' className='py-5 bg-[#D6A99D]'>
@@ -14,10 +30,11 @@ const Navbar = () => {
                   </div>
                   <div className="navitems">
                           <ul className='flex gap-5'>
-                 <li className='text-lg  hover:text-white duration-100'><Link to='/'>Home</Link></li>
-                 <li className='text-lg  hover:text-white duration-100'><Link to='/about'>About</Link></li>
-                <li className='text-lg hover:text-white duration-100'><Link to='/layouttwo'>AllProducts</Link></li>
-                <li className='text-lg hover:text-white duration-100'><Link to='/layouttwo/service'>Services</Link></li>
+                              {
+                                navitems.map((item)=>{
+                                  return <li className='text-lg  hover:text-white duration-100'><Link to={item.path}>{ item.content}</Link></li>
+                                })
+                              }
                               
                       </ul>
                   </div>
